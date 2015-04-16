@@ -1,6 +1,6 @@
 {
   "name": "replaceholder",
-  "main": "y",
+  "main": "replaceholder.js",
   "version": "0.0.1",
   "homepage": "https://github.com/happylinks/replaceholder",
   "authors": [
