@@ -1,0 +1,23 @@
+{
+  "name": "replaceholder",
+  "main": "y",
+  "version": "0.0.1",
+  "homepage": "https://github.com/happylinks/replaceholder",
+  "authors": [
+    "Michiel Westerbeek <happylinks@gmail.com>"
+  ],
+  "description": "Replace placeholder images with the correct image if it exists.",
+  "keywords": [
+    "image",
+    "replace",
+    "placeholder"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
