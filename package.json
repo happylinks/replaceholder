@@ -1,6 +1,6 @@
 {
   "name": "replaceholder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Replace placeholder images with the correct image if it exists.",
   "keywords": [
     "image",
@@ -16,7 +16,7 @@
     "url": "git+https://github.com/happylinks/replaceholder.git"
   },
   "author": "Michiel Westerbeek <happylinks@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/happylinks/replaceholder/issues"
   },
