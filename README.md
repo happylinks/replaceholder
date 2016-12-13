@@ -22,7 +22,7 @@ $('.replaceholder').replaceholder();
      data-type="bg"
      data-src="source_image.png">
 
-     =>
+<!-- Will be changed into the following once loaded: -->
 
 <img class="replaceholder"
      src="source_image.png"
@@ -35,7 +35,7 @@ $('.replaceholder').replaceholder();
      data-src="source_image.png">
 ```
 
-## Options *(since v.0.0.2)*
+## Options *(since v.1.1.0)*
 
 You can pass options object as parameter to add classes when image will be loaded or return error. This can be helpful if you use fontawesome icons as placeholders. For example:
 
@@ -60,7 +60,7 @@ $('.thumbnail > li').replaceholder(options);
     <li>Element 3</li>
 </ul>
 
-    =>
+<!-- Will be changed into the following once loaded: -->
 
 <ul class="thumbnail">
     <li class="failed">Element 1</li>
@@ -68,7 +68,7 @@ $('.thumbnail > li').replaceholder(options);
     <li class="failed">Element 3</li>
 </ul>
 
-    or
+<!-- or -->
 
 <ul class="thumbnail">
     <li class="done" style="background-image: url(newImage.png);">Element 1</li>

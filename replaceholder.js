@@ -16,12 +16,32 @@
 }(this, function () {
     'use strict';
 
-    // options argument is an object that may contain:
-    // src: 'newImage.png' // required image url
-    // bg: false           // replaces src attribute (false) or background-image style (true) of the element
-    // doneClass: 'string' // class or classes that will be added to the element when image is loaded
-    // failClass: 'string' // class or classes that will be added to the element if image can't be loaded
-    // replaceClass: false // doneClass and failClass will rewrite (true) or be added (false) current value
+    /**
+     * Extending or replacing DOM element class list
+     * @param {HTMLElement} el - DOM element
+     * @param {string} newClass - Class list that will be applied to the element
+     * @param {boolean} [overwriteClass] - Overwrites element's class(es) (true); otherwise adds them (false)
+     */
+    var changeClass = function (el, newClass, overwriteClass) {
+        if (!el || !newClass) {
+            return;
+        }
+        if (overwriteClass) {
+            el.setAttribute('class', newClass.trim());
+        } else {
+            el.className = (el.className + ' ' + newClass).trim();
+        }
+    };
+
+    /**
+     * Pass an object with image url, type and classes to be added when load ends or fails
+     * @param {Object} [options] - Optional set of parameters
+     * @param {string} [options.src] - URL of the image to load, can be used instead of data-src attribute
+     * @param {boolean} [options.bg] - Sets background-image (true) or src (false); can be used instead of data-type="bg"
+     * @param {string} [options.doneClass] - Class(es) that will be added to the element when image is loaded
+     * @param {string} [options.failClass] - Class(es) that will be added to the element when image load fails
+     * @param {boolean} [options.overwriteClass] - Overwrites element's class(es) (true); otherwise adds them (false)
+     */
     return function (options) {
         options = options || {};
         return this.each(function () {
@@ -35,17 +55,6 @@
             var doneClass = (typeof options.doneClass === 'string') ? options.doneClass : undefined;
             var failClass = (typeof options.failClass === 'string') ? options.failClass : undefined;
 
-            var changeClass = function (newClass) {
-                if (!newClass) {
-                    return;
-                }
-                if (options.replaceClass) {
-                    img.setAttribute('class', newClass);
-                } else {
-                    img.className = (img.className + ' ' + newClass).trim();
-                }
-            };
-
             var tempImg = new Image();
             tempImg.onload = function () {
                 if (background) {
@@ -53,10 +62,10 @@
                 } else {
                     img.setAttribute('src', this.src);
                 }
-                changeClass(doneClass);
+                changeClass(img, doneClass, options.overwriteClass);
             };
             tempImg.onerror = function () {
-                changeClass(failClass);
+                changeClass(img, failClass, options.overwriteClass);
             };
             tempImg.src = src;
         });
