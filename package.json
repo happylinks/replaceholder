@@ -1,11 +1,12 @@
 {
   "name": "replaceholder",
-  "version": "1.0.1",
-  "description": "Replace placeholder images with the correct image if it exists.",
+  "version": "1.1.0",
+  "description": "Replace placeholders with correct images if they exist",
   "keywords": [
     "image",
     "replace",
-    "placeholder"
+    "placeholder",
+    "replaceholder"
   ],
   "main": "replaceholder.js",
   "scripts": {
