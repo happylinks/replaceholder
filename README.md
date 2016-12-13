@@ -42,11 +42,11 @@ You can pass options object as parameter to add classes when image will be loade
 #### JS:
 ```js
 var options = {
-    src: 'newImage.png', // required image url
-    bg: true,            // replaces src attribute (false) or background-image style (true) of the element
-    doneClass: 'done',   // class or classes that will be added to the element when image is loaded
-    failClass: 'failed', // class or classes that will be added to the element if image can't be loaded
-    replaceClass: false  // doneClass and failClass will rewrite (true) or be added (false) current value
+    src: 'newImage.png',  // URL of the image to load, can be used instead of data-src attribute
+    bg: true,             // Sets background-image if true; can be used instead of data-type="bg"
+    doneClass: 'done',    // Class(es) that will be added to the element when image is loaded
+    failClass: 'failed',  // Class(es) that will be added to the element when image load fails
+    overwriteClass: false // Overwrites element's class(es) (true); otherwise adds them (false)
 };
 
 $('.thumbnail > li').replaceholder(options);
@@ -63,16 +63,16 @@ $('.thumbnail > li').replaceholder(options);
 <!-- Will be changed into the following once loaded: -->
 
 <ul class="thumbnail">
-    <li class="failed">Element 1</li>
-    <li class="failed">Element 2</li>
-    <li class="failed">Element 3</li>
-</ul>
-
-<!-- or -->
-
-<ul class="thumbnail">
     <li class="done" style="background-image: url(newImage.png);">Element 1</li>
     <li class="done" style="background-image: url(newImage.png);">Element 2</li>
     <li class="done" style="background-image: url(newImage.png);">Element 3</li>
+</ul>
+
+<!-- Or will be changed into the following if image loading will fail: -->
+
+<ul class="thumbnail">
+    <li class="failed">Element 1</li>
+    <li class="failed">Element 2</li>
+    <li class="failed">Element 3</li>
 </ul>
 ```
